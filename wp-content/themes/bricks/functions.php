@@ -213,3 +213,13 @@ function bricks_is_builder_call() {
 function bricks_render_dynamic_data( $content, $post_id = 0, $context = 'text' ) {
 	return \Bricks\Integrations\Dynamic_Data\Providers::render_content( $content, $post_id, $context );
 }
+
+// To Active Li Header
+function add_custom_classes_to_menu_item($classes, $item) {
+    if (in_array('current-menu-item', $classes)) {
+        $classes[] = 'active';
+    }
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'add_custom_classes_to_menu_item', 10, 2);
+
